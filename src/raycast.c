@@ -6,12 +6,12 @@
 /*   By: simzam <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/17 13:35:44 by simzam            #+#    #+#             */
-/*   Updated: 2016/06/17 14:16:08 by simzam           ###   ########.fr       */
+/*   Updated: 2016/06/23 15:15:57 by jomeirin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mlx.h>
-#include <X.h>
+//#include <X.h>
 #include <math.h>
 #include <stdlib.h>
 #include "../includes/wolf.h"
@@ -104,7 +104,7 @@ int				loop_hook(t_env *e)
 	if (e->img.img != NULL)
 	{
 		//Changed form mlx_destroy_image to this.
-		mlx_clear_window(e->mlx, e->img.img);
+		mlx_destroy_image(e->mlx, e->img.img);
 		e->img.img = NULL;
 	}
 	e->img.img = mlx_new_image(e->mlx, WIN_WIDTH, WIN_HEIGH);

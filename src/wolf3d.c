@@ -6,12 +6,12 @@
 /*   By: simzam <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/17 13:26:12 by simzam            #+#    #+#             */
-/*   Updated: 2016/06/17 15:40:46 by simzam           ###   ########.fr       */
+/*   Updated: 2016/06/23 14:44:56 by jomeirin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mlx.h>
-#include <X.h>
+//#include <X.h>
 #include <stdlib.h>
 #include <sys/types.h>
 #include <sys/stat.h>
