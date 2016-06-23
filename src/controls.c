@@ -6,7 +6,7 @@
 /*   By: simzam <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/17 13:16:31 by simzam            #+#    #+#             */
-/*   Updated: 2016/06/17 15:50:33 by simzam           ###   ########.fr       */
+/*   Updated: 2016/06/23 15:19:24 by jomeirin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,32 +16,32 @@
 
 int			key_press(int keycode, t_env *e)
 {
-	if (keycode == 65361)
+	if (keycode == 65361 || keycode == 0x7B)
 		e->player.move.left = 1;
-	if (keycode == 65362)
+	if (keycode == 65362 || keycode == 0x7E)
 		e->player.move.up = 1;
-	if (keycode == 65363)
+	if (keycode == 65363 || keycode == 0x7C)
 		e->player.move.right = 1;
-	if (keycode == 65364)
+	if (keycode == 65364 || keycode == 0x7D)
 		e->player.move.down = 1;
-	if (keycode == 65505)
+	if (keycode == 65505 || keycode == 0x38)
 		e->player.sprint = 1;
 	return (0);
 }
 
 int			key_release(int keycode, t_env *e)
 {
-	if (keycode == 65307)
+	if (keycode == 65307 || keycode == 53)
 		exit(0);
-	if (keycode == 65361)
+	if (keycode == 65361 || keycode == 0)
 		e->player.move.left = 0;
-	if (keycode == 65362)
+	if (keycode == 65362 || keycode == 1)
 		e->player.move.up = 0;
-	if (keycode == 65363)
+	if (keycode == 65363 || keycode == 2)
 		e->player.move.right = 0;
-	if (keycode == 65364)
+	if (keycode == 65364 || keycode == 1)
 		e->player.move.down = 0;
-	if (keycode == 65505)
+	if (keycode == 65505 || keycode == 126)
 		e->player.sprint = 0;
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: simzam <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/06/10 09:17:10 by simzam            #+#    #+#              #
-#    Updated: 2016/06/17 14:05:12 by simzam           ###   ########.fr        #
+#    Updated: 2016/06/23 14:47:55 by jomeirin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRC = src/wolf3d.c src/get_next_line.c src/draw.c src/raycast.c src/controls.c
 
 RM = rm -f
 
-MLX = -L/usr/lib/X11 -lmlx -lXext -lX11
+MLX = -lmlx -framework OpenGL -framework AppKit 
 
 INC = -I /usr/include/X11
 
