@@ -6,13 +6,20 @@
 /*   By: simzam <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/17 13:16:31 by simzam            #+#    #+#             */
-/*   Updated: 2016/06/23 15:39:30 by jomeirin         ###   ########.fr       */
+/*   Updated: 2016/06/26 10:26:06 by simzam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../libft/libft.h"
 #include "../includes/wolf.h"
+#include <mlx.h>
 #include <stdlib.h>
 #include <math.h>
+
+int			quit(void)
+{
+	exit(0);
+}
 
 int			key_press(int keycode, t_env *e)
 {
@@ -32,7 +39,12 @@ int			key_press(int keycode, t_env *e)
 int			key_release(int keycode, t_env *e)
 {
 	if (keycode == 65307 || keycode == 0x35)
+	{
+	//	mlx_destroy_image(e->mlx, e->img.img);
+		mlx_destroy_window(e->mlx, e->win);
+		ft_memdel((void **)e->map.map);
 		exit(0);
+	}
 	if (keycode == 65361 || keycode == 0x7B)
 		e->player.move.left = 0;
 	if (keycode == 65362 || keycode == 0x7E)
@@ -71,11 +83,11 @@ void		move(t_env *e)
 {
 	if (e->player.move.up)
 	{
-		if (!(e->map.map[(int)(e->player.pos.x + e->player.dir.x
-			* e->player.mspeed)][(int)(e->player.pos.y)]))
+		if (!(e->map.map[abs((int)((int)(e->player.pos.x + e->player.dir.x
+			* e->player.mspeed)))][abs((int)(e->player.pos.y))]))
 			e->player.pos.x += e->player.dir.x * e->player.mspeed;
-		if (!(e->map.map[(int)(e->player.pos.x)][(int)(e->player.pos.y
-			+ e->player.dir.y * e->player.mspeed)]))
+		if (!(e->map.map[abs((int)(e->player.pos.x))][abs((int)(e->player.pos.y
+			+ e->player.dir.y * e->player.mspeed))]))
 			e->player.pos.y += e->player.dir.y * e->player.mspeed;
 	}
 	if (e->player.move.left)
@@ -84,11 +96,11 @@ void		move(t_env *e)
 		turn(e, 'R');
 	if (e->player.move.down)
 	{
-		if (!(e->map.map[(int)(e->player.pos.x - e->player.dir.x
-			* e->player.mspeed)][(int)(e->player.pos.y)]))
+		if (!(e->map.map[abs((int)(e->player.pos.x - e->player.dir.x
+			* e->player.mspeed))][abs((int)(e->player.pos.y))]))
 			e->player.pos.x -= e->player.dir.x * e->player.mspeed;
-		if (!(e->map.map[(int)(e->player.pos.x)][(int)(e->player.pos.y
-			- e->player.dir.y * e->player.mspeed)]))
+		if (!(e->map.map[abs((int)(e->player.pos.x))][abs((int)(e->player.pos.y
+			- e->player.dir.y * e->player.mspeed))]))
 			e->player.pos.y -= e->player.dir.y * e->player.mspeed;
 	}
 	if (e->player.sprint)

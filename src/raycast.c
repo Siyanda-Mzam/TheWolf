@@ -6,12 +6,11 @@
 /*   By: simzam <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/17 13:35:44 by simzam            #+#    #+#             */
-/*   Updated: 2016/06/23 15:15:57 by jomeirin         ###   ########.fr       */
+/*   Updated: 2016/06/26 10:22:00 by simzam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mlx.h>
-//#include <X.h>
 #include <math.h>
 #include <stdlib.h>
 #include "../includes/wolf.h"
@@ -101,12 +100,6 @@ int				loop_hook(t_env *e)
 	t_rgb	c;
 	int		x;
 
-	if (e->img.img != NULL)
-	{
-		//Changed form mlx_destroy_image to this.
-		mlx_destroy_image(e->mlx, e->img.img);
-		e->img.img = NULL;
-	}
 	e->img.img = mlx_new_image(e->mlx, WIN_WIDTH, WIN_HEIGH);
 	x = 0;
 	while (x < WIN_WIDTH)
@@ -122,5 +115,6 @@ int				loop_hook(t_env *e)
 	get_time_frame(e);
 	move(e);
 	mlx_put_image_to_window(e->mlx, e->win, e->img.img, 0, 0);
+	mlx_destroy_image(e->mlx, e->img.img);
 	return (0);
 }

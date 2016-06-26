@@ -1,24 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                       :+:      :+:    :+:    */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: simzam <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/12 10:01:12 by simzam            #+#    #+#             */
-/*   Updated: 2016/05/17 21:47:01 by simzam           ###   ########.fr       */
+/*   Created: 2016/05/12 10:01:11 by simzam            #+#    #+#             */
+/*   Updated: 2016/06/24 07:36:40 by simzam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-/* Allocates (with malloc(3)) and returns a “fresh” link. The variables content
- * and content_size of the new link are initialized by copy of the parameters
- * of the function. If the parameter "content" is null, the variable "content"
- * is initialized to NULL and the variable "content_size" is initialized to 0
- * even if the parameter "content_size" isn’t. The variable "next"
- * is initialized to NULL. If the allocation fails, the function returns NULL.
- */
 
 t_list	*ft_lstnew(void const *content, size_t content_size)
 {
@@ -28,7 +20,7 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 		return (NULL);
 	if (content && content_size > 0)
 	{
-		if(!(new_list->content = ft_memalloc(content_size)))
+		if (!(new_list->content = ft_memalloc(content_size)))
 		{
 			free(new_list);
 			return (NULL);

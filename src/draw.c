@@ -6,22 +6,21 @@
 /*   By: simzam <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/17 13:33:18 by simzam            #+#    #+#             */
-/*   Updated: 2016/06/23 15:00:41 by jomeirin         ###   ########.fr       */
+/*   Updated: 2016/06/26 10:04:21 by simzam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/wolf.h"
 #include <mlx.h>
-#include "../libft/libft.h"
 
-static void	set_colors(t_rgb *c, int r, int g, int b)
+static void		set_colors(t_rgb *c, int r, int g, int b)
 {
 	c->r = r;
 	c->g = g;
 	c->b = b;
 }
 
-static void	mlx_image_put_pixel(void *mlx, t_img *i, t_coordint p, t_rgb *c)
+static void		mlx_image_put_pixel(void *mlx, t_img *i, t_coordint p, t_rgb *c)
 {
 	if (i->e)
 	{
@@ -37,7 +36,7 @@ static void	mlx_image_put_pixel(void *mlx, t_img *i, t_coordint p, t_rgb *c)
 	}
 }
 
-void		draw_line(int x, t_env *e, t_rgb *c)
+void			draw_line(int x, t_env *e, t_rgb *c)
 {
 	t_coordint	p;
 	t_rgb		skyfloor;
@@ -66,16 +65,17 @@ void		draw_line(int x, t_env *e, t_rgb *c)
 	}
 }
 
-void		colors(t_env *e, t_rgb *c)
+void			colors(t_env *e, t_rgb *c)
 {
 	if (e->player.wallside == 0)
+	{
 		if (e->player.step.x < 0)
 			set_colors(c, 0, 0, 255);
 		else
 			set_colors(c, 0, 255, 0);
+	}
+	else if (e->player.step.y < 0)
+		set_colors(c, 255, 0, 255);
 	else
-		if (e->player.step.y < 0)
-			set_colors(c, 255, 0, 255);
-		else
-			set_colors(c, 255, 255, 0);
+		set_colors(c, 255, 255, 0);
 }

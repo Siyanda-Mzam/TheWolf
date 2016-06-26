@@ -6,7 +6,7 @@
 /*   By: simzam <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/17 14:05:22 by simzam            #+#    #+#             */
-/*   Updated: 2016/06/17 14:07:40 by simzam           ###   ########.fr       */
+/*   Updated: 2016/06/26 10:26:26 by simzam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,5 +108,5 @@ int				key_press(int keycode, t_env *e);
 void			move(t_env *e);
 void			colors(t_env *e, t_rgb *c);
 void			draw_line(int x, t_env *e, t_rgb *c);
-
+int				quit(void);
 #endif
